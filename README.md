@@ -8,14 +8,19 @@ This manual applies to TMflow Version 2.14 or above and adapts to HW5.0 mainly.
 
 ## __2. TM ROS Driver Feature__
 
-The TM ROS driver connects to _TMflow Ethernet Slave_ to control _TMflow_ project. The robot state is transmitted through this connection.  A working driver also connects to a __Listen Node__ <sup>2</sup> (running at a _TMflow project_) at the same time. To control the robot locomotion, IO, etc., the TM ROS driver sends the robot script (__TMscript__ <sup>4</sup>) through this connection. More information about __TM Robot Expression__ <sup>3</sup> and _Ethernet Slave_, see the defined protocol <sup>3</sup> _Expression Editor Manual_.<br/>
+The TM ROS driver connects to _TMflow Ethernet Slave_ to control _TMflow_ project. The robot state is transmitted through this connection.  A working driver also connects to a __Listen Node__ <sup>2</sup> (running at a _TMflow project_) at the same time. To control the robot locomotion, IO, etc., the TM ROS driver sends the robot script (__TMscript__ <sup>3</sup>) through this connection. More information about __TM Robot Expression__ <sup>4</sup> and _Ethernet Slave_, see the defined protocol <sup>4</sup> _Expression Editor Manual_.<br/>
 
-&#10146; <sup>1</sup>  __TMflow__ is a graphical human-machine interface (HMI).
-&#10146; <sup>2</sup>  __Listen Node__: A socket server can be established and be connected by an external device to communicate according to the defined protocol In the _Listen Node_. All the functions available in _Expression Editor_ can also be executed in Listen Node.
-&#10146; <sup>3</sup>  __TMscript__ is the programming language of Techman Robot applicable to Flow projects and Script projects. 
-&#10146; <sup>4</sup>  __Techman Robot Expression__ (defined protocol) is the programming language of Techman Robot applicable to Flow programming projects and Script programming projects.
-> :bookmark_tabs: Note1: The user can download the new "_Expression Editor Manual_" or "_Embedded TM ROS Driver User Manual ([2.14_Rev1.0](https://www.tm-robot.com/en/download-center/#3100-4746-wpfd-embedded-tm-ros-driver-manual))_ " from [TM Download Center](https://www.tm-robot.com/zh-hant/download-center/) or [Contact us](https://www.tm-robot.com/zh-hant/contact-us/).<br/>
-> :bookmark_tabs: Note2: The _Expression Editor_ version changes may have slightly different settings. (Several old versions for reference: ([Expression Editor_1.88_Rev1.00](https://www.tm-robot.com/zh-hant/wpfd_file/expression-editor_1-88_rev1-00_en/)) ([1.84_Rev1.00](https://www.tm-robot.com/zh-hant/wpfd_file/expression-editor-and-listen-node_1-84_rev1-00_en-2/))<br/>
+> [!NOTE]  
+> To use the driver, make sure your ROS PC is installed correctly.  
+
+&#10146; <sup>1</sup>  __TMflow__ is a graphical human-machine interface (HMI).<br/>
+&#10146; <sup>2</sup>  __Listen Node__: A socket server can be established and be connected by an external device to communicate according to the defined protocol In the _Listen Node_. All the functions available in _Expression Editor_ can also be executed in Listen Node.<br/>
+&#10146; <sup>3</sup>  __TMscript__ is the programming language of Techman Robot applicable to Flow projects and Script projects.<br/>
+&#10146; <sup>4</sup>  __Techman Robot Expression__ (defined protocol) is the programming language of Techman Robot applicable to Flow programming projects and Script programming projects.<br/>
+>
+Some relevant references [Docs](https://www.tm-robot.com/en/docs/introducing-tmflow-2-14/):
+> :bookmark_tabs: The user can download the new "_Expression Editor Manual_" or "_Embedded TM ROS Driver User Manual ([2.14_Rev1.0](https://www.tm-robot.com/en/download-center/#3100-4746-wpfd-embedded-tm-ros-driver-manual))_ " from [TM Download Center](https://www.tm-robot.com/zh-hant/download-center/) or [Contact us](https://www.tm-robot.com/zh-hant/contact-us/).<br/>
+> :bookmark_tabs: The _Expression Editor_ version changes may have slightly different settings. (Several old versions for reference: ([Expression Editor_1.88_Rev1.00](https://www.tm-robot.com/zh-hant/wpfd_file/expression-editor_1-88_rev1-00_en/)) ([1.84_Rev1.00](https://www.tm-robot.com/zh-hant/wpfd_file/expression-editor-and-listen-node_1-84_rev1-00_en-2/))<br/>
 
 TM ROS Driver consists of three main parts: Topic Publisher, Service Server, and Action Server: 
 
@@ -95,10 +100,9 @@ If the user wants to know how to use the TM ROS driver, please visit the TM ROS 
 - External TM ROS Driver [Usage Guideline](./doc/tm_humble.md)
 - Embedded TM ROS Driver [Usage Guideline](./doc/tm_humble_e.md)
 
-**Note**: To use the driver, make sure your ROS PC is installed correctly.
-> :bookmark_tabs: Note1: Using the embedded TM ROS driver can only communicate with ROS 2 applications that use eProsima FastDDS as their RMW layer. If the user needs different RMW layers for other applications, such as RMW_IMPLMENTATION=rmw_cyclonedds_cpp, please choose the installation method using the external TM ROS driver.<br/>
-> :bookmark_tabs: Note2: Using _TMflow_, especially the Listen Nodes and Vision Nodes (external detection). Please refer to _Software Manual TMflow ([SW2.14_Rev1.00](https://www.tm-robot.com/zh-hant/wpfd_file/software-manual-tmflow_sw2-14_rev1-00_en/))_  and _Software Manual TMvision ([SW2.14_Rev1.00](https://www.tm-robot.com/zh-hant/wpfd_file/software-manual-tmvision_sw2-14_rev1-00_en/))_ for more details.<br/>
-> :bookmark_tabs: Note3: Using _TMscript_ (expressions, the Listen Node commands, etc.). Please refer to the Manual: [Programming Language TMscript](https://www.tm-robot.com/zh-hant/wpfd_file/programming-language-tmscript_rev1-00_en/) for more details.<br/>
+> :bookmark_tabs: Using the embedded TM ROS driver can only communicate with ROS 2 applications that use **eProsima FastDDS** as their RMW layer. If the user needs different RMW layers for other applications, such as RMW_IMPLMENTATION=rmw_cyclonedds_cpp, please choose the installation method using the external TM ROS driver.<br/>
+> :bookmark_tabs: Using _TMflow_, especially the Listen Nodes and Vision Nodes (external detection). Please refer to _Software Manual TMflow ([SW2.14_Rev1.00](https://www.tm-robot.com/zh-hant/wpfd_file/software-manual-tmflow_sw2-14_rev1-00_en/))_  and _Software Manual TMvision ([SW2.14_Rev1.00](https://www.tm-robot.com/zh-hant/wpfd_file/software-manual-tmvision_sw2-14_rev1-00_en/))_ for more details.<br/>
+> :bookmark_tabs: Using _TMscript_ (expressions, the Listen Node commands, etc.). Please refer to the Manual: [Programming Language TMscript](https://www.tm-robot.com/zh-hant/wpfd_file/programming-language-tmscript_rev1-00_en/) for more details.<br/>
   
 <div> </div>
 
@@ -107,7 +111,7 @@ This chapter describes the demo package and the code used as a C++ programming e
 - External TM ROS Driver [Usage Guideline](./doc/tm_humble_demo.md)
 - Embedded TM ROS Driver [Usage Guideline](./doc/tm_humble_demo_e.md)
 
-**Note**: See the demo code [`demo_send_script`](./demo/src/demo_send_script.cpp) as an example.
+:technologist:: See the demo code [`demo_send_script`](./demo/src/demo_send_script.cpp) as an example.
 <div> </div>
 
 ## __5. TM External GUI debugging and Demonstration__
@@ -122,8 +126,9 @@ This chapter describes that the user can use a script program to extract specifi
 - External TM ROS Driver [Usage Guideline](./doc/tm_humble_description.md)
 - Embedded TM ROS Driver [Usage Guideline](./doc/tm_humble_description_e.md)
 
-**Note 1**: If the user just want to use the TM Robot nominal model to control the robot, the user can skip the rest of this chapter.<br/>
-**Note 2**: The tm_description package contains description files and meshes, available for the TM5S, TM7S, TM12S, TM14S, TM25S, TM30S, as well as the TM5SX, TM7SX, TM12SX, TM14SX eyeless models, and some Cobot models will be added later.<br/>
+> [!TIP]   
+> 1. If the user just want to use the TM Robot nominal model to control the robot, the user can skip the rest of this chapter.<br/>
+> 2. The tm_description package contains description files and meshes, available for the TM5S, TM7S, TM12S, TM14S, TM25S, TM30S, as well as the TM5SX, TM7SX, TM12SX, TM14SX eyeless models, and some Cobot models will be added later.<br/>
 <div> </div>
 
 ## __7. Related ROS Projects and Tutorials Usage__
@@ -132,9 +137,10 @@ The user can use MoveIt to control the TM robot in the motion planning to plan p
 See [MoveIt2 tutorial](https://moveit.ros.org/install-moveit2/binary/) to install the MoveIt2 packages.<br/>
 - External TM ROS Driver [Usage Guideline](./doc/tm_humble_extension.md)
 
-**Note**: Some packages with ROS2 Humble MoveIt2 configurations for TM Cobots are available for the TM5S, TM7S, TM12S, TM14S, and TM25S models.<br/>
+> [!TIP]  
+> Some packages with ROS2 Humble MoveIt2 configurations for TM Cobots are available for the TM5S, TM7S, TM12S, TM14S, and TM25S models.<br/>
 <div> </div>
 
-## __8. Contact us / Technical support__
+## __8. Contact us / Technical support__   [![Email](https://img.shields.io/badge/-Email-c14438?style=flat&logo=Gmail&logoColor=white)](mailto:tmsales@tm-robot.com)
 More Support & Service, please contact us. [@TECHMAN ROBOT](https://www.tm-robot.com/zh-hant/contact-us/)``[https://www.tm-robot.com/zh-hant/contact-us/] ``<br/>
 <div> </div>
